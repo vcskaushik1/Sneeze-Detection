@@ -11,4 +11,4 @@ Submission 2
 File name : Sneeze_Detector_v2.ipynb  
 Youtube: https://www.youtube.com/playlist?list=PLBae-TpIDspFXO7iZ-EgKOoWRbxDjStZA  
 Google Drive: https://drive.google.com/drive/folders/1aJE1nEIrUMr4EOOwrnf5ST-dgDpPJq5R?usp=sharing (Submission 1 folder)  
-The model for this submission not uploaded due to size issues but is available on github  
+The model for this submission not uploaded due to size issues but is available on google drive  
