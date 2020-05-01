@@ -1,0 +1,3 @@
+It is important to know that the network expects frames of each videos as input , the frames of a video will need to be in a folder and the path of the folder containing all these video frame folders needs to be provided. For the test videos selected by me the extracted frames are available in the google drive link.
+
+Update the paths of the variables test\_path and label\_p , where test\_path is the aforementioned path containing folders of video frames and label\_p is the path is the path for the label json file.The label file for the test data selected by me is available in google drive link. After updating these execute the blocks. the code involved for training has been commented for convenience.
