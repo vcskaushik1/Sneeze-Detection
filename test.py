@@ -13,7 +13,15 @@ import argparse
 
 #taken from this StackOverflow answer: https://stackoverflow.com/a/39225039
 import requests
-
+from tensorflow.keras.layers import Input, Dense, Flatten, Dropout, ZeroPadding3D, BatchNormalization, Activation, Attention
+from tensorflow.keras.layers import LSTM, TimeDistributed,Conv2D, MaxPooling3D, Conv3D,MaxPooling2D
+from tensorflow.keras.models import Sequential, load_model, Model
+from tensorflow.keras.optimizers import Adam, RMSprop
+from tensorflow.keras import regularizers
+from tensorflow.keras.utils import plot_model
+from skimage.io import imread, imread_collection, concatenate_images, ImageCollection
+from tensorflow.keras.utils import Sequence
+from tensorflow.keras.applications import ResNet50
 def download_file_from_google_drive(id, destination):
     URL = "https://docs.google.com/uc?export=download"
 
@@ -50,13 +58,15 @@ fr_vid = None
 frame_count = None
 
 def frame_extractor(video):
+    if not os.path.exists('Test_set'):
+        os.mkdir('Test_set')
     frames_path = 'Test_set/'
     video_name, video_ext = os.path.splitext(video)
     path = frames_path + video_name + '_frames'
     if not os.path.exists(path):
         os.mkdir(path)
     count = 0
-    cap = cv2.VideoCapture(videos_path + '/' + video)  # capturing the video from the given path
+    cap = cv2.VideoCapture(video)  # capturing the video from the given path
     x = 1
     frameRate = cap.get(5)  # frame rate
     fr_vid = frameRate
@@ -245,7 +255,7 @@ class DataGenerator(Sequence):
 model2 = load_model(model_path)
 
 test_list = os.listdir(test_path)
-predict_frame_gen = DataGenerator(test_path, test_list, df2=None, batch_size=1, shuffle=False, to_fit=False)
+predict_frame_gen = DataGenerator(test_path, test_list, None, batch_size=1, shuffle=False, to_fit=False)
 y_pred = model2.predict_generator(predict_frame_gen)
 print(y_pred)
 
