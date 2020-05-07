@@ -74,10 +74,10 @@ def frame_extractor(video):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--videoname', type=string)
+parser.add_argument('--video_name', type=string)
 args = parser.parse_args()
 print('Extracting Frames for the given Video!')
-frame_extractor(args.videoname)
+frame_extractor(args.video_name)
 
 # JSON EXTRACTION
 
