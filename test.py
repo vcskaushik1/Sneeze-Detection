@@ -145,7 +145,6 @@ class DataGenerator(Sequence):
 
     def _generate_X(self, video_list_temp):
         X = np.empty((self.batch_size, self.n_classes, *self.dim, self.n_channels))
-
         # Generate data
         for i, VID in enumerate(video_list_temp):
             # Store sample
