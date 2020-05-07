@@ -74,7 +74,7 @@ def frame_extractor(video):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--video_name', type=string)
+parser.add_argument('--video_name')
 args = parser.parse_args()
 print('Extracting Frames for the given Video!')
 frame_extractor(args.video_name)
