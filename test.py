@@ -144,7 +144,6 @@ class DataGenerator(Sequence):
             np.random.shuffle(self.indexes)
 
     def _generate_X(self, video_list_temp):
-        # Initialization
         X = np.empty((self.batch_size, self.n_classes, *self.dim, self.n_channels))
 
         # Generate data
